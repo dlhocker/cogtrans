@@ -1,0 +1,6 @@
+*.out
+*.log
+*.fig
+*.jpg
+*.pickle
+*.dat
