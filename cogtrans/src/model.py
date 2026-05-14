@@ -213,6 +213,10 @@ class LitAutoEncoder(L.LightningModule):
         # get loss
         criterion = nn.CrossEntropyLoss(ignore_index=0)
         loss = criterion(output.contiguous().view(-1, self.tgt_vocab_size), tgt_data[:, 1:].contiguous().view(-1))
+
+        #do logging
+        self.log('train_loss', loss, on_step=True, on_epoch=True, prog_bar=True)
+
         return loss
 
     def configure_optimizers(self):
